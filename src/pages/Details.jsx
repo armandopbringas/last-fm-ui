@@ -14,7 +14,7 @@ const Details = () => {
         const info = await getArtistInfo(artistName);
         setArtistInfo(info);
       } catch (error) {
-        console.error("Error al obtener la información del artista:", error);
+        console.error("Error when retrieving artist information:", error);
       }
     };
 
@@ -27,10 +27,10 @@ const Details = () => {
       </button>
       {artistInfo ? (
         <div>
-          <h1>Detalles del artista: {artistInfo.name}</h1>
+          <h1>Artist details: {artistInfo.name}</h1>
         </div>
       ) : (
-        <p>Cargando detalles del artista...</p>
+        <p>Loading...</p>
       )}
     </div>
   );

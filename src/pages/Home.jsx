@@ -12,7 +12,7 @@ const Home = () => {
         const userInfo = await getUserInfo();
         setUserName(userInfo.name);
       } catch (error) {
-        console.error("Error al obtener la información del usuario:", error);
+        console.error("Error when retrieving user info:", error);
       }
     };
 
@@ -21,7 +21,7 @@ const Home = () => {
         const tracks = await getUkTopTracks("United Kingdom");
         setTopTracks(tracks);
       } catch (error) {
-        console.error("Error al obtener las canciones más escuchadas:", error);
+        console.error("Error when retrieving the most listened songs:", error);
       }
     };
 
@@ -34,7 +34,7 @@ const Home = () => {
       <div>
         {userName && (
           <p>
-            Hi! <span>{userName}</span>!
+            Hi <span>{userName}</span>!
           </p>
         )}
         <Link to="/profile">My profile</Link>
