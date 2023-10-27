@@ -3,11 +3,11 @@ import styles from "../scss/Layout.module.scss";
 
 const Layout = ({ children }) => {
   return (
-    <div className={styles.Box}>
+    <div className={styles.BorderBox}>
       <Header />
-      {children}
+      <div className={styles.Box}>{children}</div>
     </div>
   );
-}
- 
+};
+
 export default Layout;

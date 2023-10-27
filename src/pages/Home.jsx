@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getUkTopTracks, getUserInfo } from "../services/services";
+import styles from "../scss/Layout.module.scss";
 
 const Home = () => {
   const [topTracks, setTopTracks] = useState([]);
@@ -31,28 +32,30 @@ const Home = () => {
 
   return (
     <div>
-      <div>
+      <div className={styles.FlexRow}>
         {userName && (
-          <p>
-            Hi <span>{userName}</span>!
+          <p className={styles.textGreeting}>
+            Hi <strong className={styles.userText}>{userName}</strong>!
           </p>
         )}
-        <Link to="/profile">My profile</Link>
+        <Link to="/profile" className={styles.textLink}>
+          My profile
+        </Link>
       </div>
       <h1>Top ten tracks in UK</h1>
-      <ul>
+      <ul className={styles.FlexCol}>
         {topTracks.map((item) => (
-          <li key={item.name}>
-            <Link to={`/details/${item.artist.name}`}>
-              <div>
+          <Link to={`/details/${item.artist.name}`} className={styles.textLink}>
+            <li key={item.name} className={styles.trackItemBox}>
+              <div className={styles.trackItem}>
                 {/* <img src={item.imageUrl} alt={item.name} /> */}
                 <div>
-                  <p>{item.name}</p>
-                  <p>{item.artist.name}</p>
+                  <p className={styles.trackName}>{item.name}</p>
+                  <p className={styles.artistName}>{item.artist.name}</p>
                 </div>
               </div>
-            </Link>
-          </li>
+            </li>
+          </Link>
         ))}
       </ul>
     </div>

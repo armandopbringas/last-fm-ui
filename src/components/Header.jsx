@@ -1,6 +1,8 @@
+import module from "../scss/Layout.module.scss";
+
 const Header = () => {
   return (
-    <header>
+    <header className={module.HeaderBox}>
       <h1>Music app</h1>
     </header>
   );
