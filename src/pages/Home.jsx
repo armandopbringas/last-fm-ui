@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getUkTopTracks, getUserInfo } from "../services/services";
 import styles from "../scss/Layout.module.scss";
+import { GiMusicSpell } from "react-icons/gi";
+import { SlOptionsVertical } from "react-icons/sl"
 
 const Home = () => {
   const [topTracks, setTopTracks] = useState([]);
@@ -48,12 +50,13 @@ const Home = () => {
           <Link to={`/details/${item.artist.name}`} className={styles.textLink}>
             <li key={item.name} className={styles.trackItemBox}>
               <div className={styles.trackItem}>
-                {/* <img src={item.imageUrl} alt={item.name} /> */}
+                <GiMusicSpell size={35} color="#1814E4" />
                 <div>
                   <p className={styles.trackName}>{item.name}</p>
                   <p className={styles.artistName}>{item.artist.name}</p>
                 </div>
               </div>
+              <SlOptionsVertical />
             </li>
           </Link>
         ))}
