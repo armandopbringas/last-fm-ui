@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import {
   fetchRecentTracks,
   fetchLovedTracks,
@@ -13,7 +12,6 @@ import styles from "../scss/Layout.module.scss";
 const Profile = () => {
   const [lovedTracks, setLovedTracks] = useState([]);
   const [recentTracks, setRecentTracks] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,10 +36,9 @@ const Profile = () => {
 
   return (
     <div>
-      <button onClick={() => navigate(-1)}>←</button>
       <h1>Perfil del usuario</h1>
 
-      <h2>Últimas canciones reproducidas</h2>
+      <h4>Últimas canciones reproducidas</h4>
       <ul className={styles.listBox}>
         {recentTracks.map((track, index) => (
           <>
@@ -61,7 +58,7 @@ const Profile = () => {
         ))}
       </ul>
 
-      <h2>Últimas canciones favoritas</h2>
+      <h4>Últimas canciones favoritas</h4>
       <ul className={styles.listBox}>
         {lovedTracks.map((track, index) => (
           <>

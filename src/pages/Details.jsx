@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom"; // Importa useParams para obtener el parámetro de la URL
+import { useParams } from "react-router-dom";
 import { getArtistInfo } from "../services/services";
+import { SiApplemusic } from "react-icons/si";
+import styles from "../scss/Layout.module.scss";
 
 const Details = () => {
   const { artistName } = useParams();
-  const navigate = useNavigate();
 
   const [artistInfo, setArtistInfo] = useState(null);
 
@@ -22,12 +23,18 @@ const Details = () => {
   }, [artistName]);
   return (
     <div>
-      <button onClick={() => navigate(-1)}>
-        ←
-      </button>
       {artistInfo ? (
-        <div>
-          <h1>Artist details: {artistInfo.name}</h1>
+        <div className={styles.BoxShadow}>
+          <h2>{artistInfo.name}</h2>
+          <div className={styles.BoxCentered}>
+            <SiApplemusic size={375} color="#1814E4" />
+            <div>
+              <p>
+                <strong>Aabout {artistInfo.name}:</strong>
+              </p>
+              <p>{artistInfo.bio.summary}</p>
+            </div>
+          </div>
         </div>
       ) : (
         <p>Loading...</p>
