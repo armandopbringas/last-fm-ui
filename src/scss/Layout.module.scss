@@ -23,6 +23,13 @@
   h1 {
     margin: 0;
   }
+
+  .navBox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .FlexRow {
@@ -59,8 +66,13 @@
   color: #1814E4;
 }
 
-.textLink {
+.nameText {
   color: #191D21;
+  text-decoration: none;
+}
+
+.textLink {
+  color: #fff;
   text-decoration: none;
 }
 

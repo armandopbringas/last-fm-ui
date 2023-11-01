@@ -30,7 +30,7 @@ const Profile = () => {
         console.error("Error en la solicitud:", error);
       }
     };
-
+    
     fetchData();
   }, []);
 
@@ -41,41 +41,37 @@ const Profile = () => {
       <h4>Últimas canciones reproducidas</h4>
       <ul className={styles.listBox}>
         {recentTracks.map((track, index) => (
-          <>
-            <li key={index} className={styles.favTracks}>
-              <div className={styles.trackBox}>
-                <SiApplemusic size={35} color="#1814E4" />
-                <div>
-                  <p className={styles.textTrackTitle}>
-                    <strong>{track.name}</strong>
-                  </p>
-                  <p className={styles.text}>by {track.artist["#text"]}</p>
-                </div>
+          <li key={index} className={styles.favTracks}>
+            <div className={styles.trackBox}>
+              <SiApplemusic size={35} color="#1814E4" />
+              <div>
+                <p className={styles.textTrackTitle}>
+                  <strong>{track.name}</strong>
+                </p>
+                <p className={styles.text}>by {track.artist["#text"]}</p>
               </div>
-              <BsFillPlayFill color="#1814E4" />
-            </li>
-          </>
+            </div>
+            <BsFillPlayFill color="#1814E4" />
+          </li>
         ))}
       </ul>
 
       <h4>Últimas canciones favoritas</h4>
       <ul className={styles.listBox}>
         {lovedTracks.map((track, index) => (
-          <>
-            <li key={index} className={styles.favTracks}>
-              <div className={styles.trackBox}>
-                <SiApplemusic size={35} color="#1814E4" />
-                <div>
-                  <p className={styles.textTrackTitle}>
-                    <strong>{track.name}</strong>
-                  </p>
-                  <p className={styles.text}>by {track.artist["name"]}</p>
-                  <p className={styles.likedText}>liked: {track.date["#text"]}</p>
-                </div>
+          <li key={index} className={styles.favTracks}>
+            <div className={styles.trackBox}>
+              <SiApplemusic size={35} color="#1814E4" />
+              <div>
+                <p className={styles.textTrackTitle}>
+                  <strong>{track.name}</strong>
+                </p>
+                <p className={styles.text}>by {track.artist["name"]}</p>
+                <p className={styles.likedText}>liked: {track.date["#text"]}</p>
               </div>
-              <BsFillPlayFill color="#1814E4" />
-            </li>
-          </>
+            </div>
+            <BsFillPlayFill color="#1814E4" />
+          </li>
         ))}
       </ul>
     </div>

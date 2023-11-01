@@ -40,15 +40,12 @@ const Home = () => {
             Hi <strong className={styles.userText}>{userName}</strong>!
           </p>
         )}
-        <Link to="/profile" className={styles.textLink}>
-          My profile
-        </Link>
       </div>
       <h1>Top ten tracks in UK</h1>
       <ul className={styles.FlexCol}>
         {topTracks.map((item) => (
-          <Link to={`/details/${item.artist.name}`} className={styles.textLink}>
-            <li key={item.name} className={styles.trackItemBox}>
+          <Link to={`/details/${item.artist.name}`} className={styles.nameText} key={item.name}>
+            <li className={styles.trackItemBox}>
               <div className={styles.trackItem}>
                 <GiMusicSpell size={35} color="#1814E4" />
                 <div>

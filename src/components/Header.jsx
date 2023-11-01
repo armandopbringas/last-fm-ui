@@ -1,6 +1,6 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
-import module from "../scss/Layout.module.scss";
+import styles from "../scss/Layout.module.scss";
 
 const Header = () => {
   const location = useLocation();
@@ -9,14 +9,16 @@ const Header = () => {
   const handleShowBackArrow = location.pathname === "/";
 
   return (
-    <header className={module.HeaderBox}>
+    <header className={styles.HeaderBox}>
       {handleShowBackArrow ? (
-        <h1>Last fm app</h1>
+        <nav className={styles.navBox}>
+          <h1>Last fm app</h1>
+          <Link to="/profile" className={styles.textLink}>
+            My profile
+          </Link>
+        </nav>
       ) : (
-        <BiArrowBack
-          size={30}
-          onClick={() => navigate(-1)}
-        />
+        <BiArrowBack size={30} onClick={() => navigate(-1)} />
       )}
     </header>
   );
